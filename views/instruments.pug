@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1= title
+  - let results = [
+    {name: "Guitar", type: "String", price: 500},
+    {name: "Piano", type: "Keyboard", price: 1500},
+    {name: "Drum", type: "Percussion", price: 700}
+  ]
+
+  div(class="container-fluid")
+    div(class="row")
+      each item in results
+        div(class="col-sm-2")
+          p #{item.name}
+          p #{item.type}
+          p #{item.price}
