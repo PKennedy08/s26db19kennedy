@@ -2,11 +2,11 @@ extends layout
 
 block content
   h1= title
-  - let results = [
-    {name: "Guitar", type: "String", price: 500},
-    {name: "Piano", type: "Keyboard", price: 1500},
-    {name: "Drum", type: "Percussion", price: 700}
-  ]
+  - let results = []
+  - results.push({name: "Guitar", type: "String", price: 500})
+  - results.push({name: "Piano", type: "Keyboard", price: 1500})
+  - results.push({name: "Drum", type: "Percussion", price: 700})
+  
 
   div(class="container-fluid")
     div(class="row")
