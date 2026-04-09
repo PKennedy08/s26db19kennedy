@@ -3,12 +3,46 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+
 require('dotenv').config();
 const connectionString = process.env.MONGO_CON
-mongoose = require('mongoose');
+const mongoose = require('mongoose');
 mongoose.connect(connectionString);
 
-var instrumentsRouter = require("./models/costume");
+var Instruments = require("./models/instrumentsSchema");
+
+// We can seed the collection if needed on
+
+async function recreateDB(){
+  try{
+  // Delete everything
+  await Instruments.deleteMany();
+
+  let instance1 = new Instruments({name: "Guitar", type: "String", price: 500});
+  let instance2 = new Instruments({name: "Piano", type: "Keyboard", price: 1500});
+  let instance3 = new Instruments({name: "Drum", type: "Percussion", price: 700});
+
+  await instance1.save();
+  console.log("First object saved");
+
+  await instance2.save();
+  console.log("Second object saved");
+
+  await instance3.save();
+  console.log("Third objective saved");
+
+  } catch(err) {
+    console.error(err);
+  }
+}
+  
+let reseed = true;
+if (reseed) {
+  recreateDB();
+}
+
+
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var instrumentsRouter = require('./routes/instruments');
