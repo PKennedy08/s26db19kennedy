@@ -5,4 +5,4 @@ const intrumentsSchema = mongoose.Schema({
     price: Number
 });
 module.exports = mongoose.model("Intruments",
-intrumentsSchemaSchema)
+intrumentsSchema)
