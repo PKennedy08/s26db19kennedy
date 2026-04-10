@@ -1,4 +1,4 @@
-const costume_controller = require('../controllers/costume');
+const instrument_controller = require('../controllers/instrument');
 var express = require('express');
 var router = express.Router();
 // Require controller modules.
@@ -6,7 +6,7 @@ var api_controller = require('../controllers/api');
 var instrument_controller = require('../controllers/instrument');
 /// API ROUTE ///
 // GET resources base.
-router.get('/costumes/:id', costume_controller.costume_detail);/// COSTUME ROUTES ///
+router.get('/instrument/:id', costume_controller.costume_detail);/// COSTUME ROUTES ///
 // POST request for creating a Costume.
 router.post('/instrument', instrument_controller.instrument_create_post);
 // DELETE request to delete Costume.
