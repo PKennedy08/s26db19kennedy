@@ -1,4 +1,3 @@
-const instrument_controller = require('../controllers/instrument');
 var express = require('express');
 var router = express.Router();
 // Require controller modules.
