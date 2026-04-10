@@ -42,7 +42,7 @@ if (reseed) {
 }
 
 
-
+var resourceRouter = require('./routes/resource');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var instrumentsRouter = require('./routes/instruments');
@@ -61,6 +61,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/resource', resourceRouter)
 app.use('/grid', gridRouter);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
