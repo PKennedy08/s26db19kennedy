@@ -11,7 +11,5 @@ block content
   div(class="container-fluid")
     div(class="row")
       each item in results
-        div(class="col-sm-2")
-          p #{item.name}
-          p #{item.type}
-          p #{item.price}
+        div(class="col-sm-2") Item #{item.name}(#{item.type}) is #{item.price}
+          
