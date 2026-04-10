@@ -5,8 +5,7 @@ var api_controller = require('../controllers/api');
 var instrument_controller = require('../controllers/instrument');
 /// API ROUTE ///
 // GET resources base.
-router.get('/', api_controller.api);
-/// COSTUME ROUTES ///
+router.get('/costumes/:id', costume_controller.costume_detail);/// COSTUME ROUTES ///
 // POST request for creating a Costume.
 router.post('/instrument', instrument_controller.instrument_create_post);
 // DELETE request to delete Costume.
