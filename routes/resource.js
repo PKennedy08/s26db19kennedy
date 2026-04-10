@@ -2,8 +2,8 @@ var express = require('express');
 var router = express.Router();
 
 // FIXED: correct controller import
-var instrument_controller = require('../controllers/api');
-var api_controller = require('../controllers/instrument')
+var instrument_controller = require('../controllers/instrument');
+var api_controller = require('../controllers/api')
 
 router.get('/', api_controller.api)
 
