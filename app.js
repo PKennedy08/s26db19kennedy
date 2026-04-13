@@ -45,7 +45,7 @@ if (reseed) {
 var resourceRouter = require('./routes/resource');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-//var instrumentsRouter = require('./routes/instruments');
+var instrumentsRouter = require('./routes/instruments');
 var gridRouter = require('./routes/grid');
 
 var app = express();
