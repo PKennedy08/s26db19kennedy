@@ -3,10 +3,5 @@ var router = express.Router();
 
 const instrument_controller = require('../controllers/instrument');
 
-// Part 5 - JSON
-router.get('/', instrument_controller.instrument_list);
-
-// Part 6 - View
-router.get('/view', instrument_controller.instrument_view_all_Page);
-
+router.put('/instrument:id', instrument_controller.instrument_update)
 module.exports = router;

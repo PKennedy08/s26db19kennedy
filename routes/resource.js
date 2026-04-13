@@ -15,5 +15,7 @@ router.put('/instruments/:id', instrument_controller.instrument_update);
 
 // DELETE
 router.delete('/instruments/:id', instrument_controller.instrument_delete);
+router.post('/egg', instrument_controller.instrument_create_post);
+router.get('/instruments', instrument_controller.instrument_list);
 
 module.exports = router;
