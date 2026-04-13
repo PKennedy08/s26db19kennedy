@@ -64,7 +64,7 @@ exports.instrument_delete = async function(req, res) {
     res.send('Not Implemented: Instrument delete ' + req.params.id);
     
 };
-exports.instrumet_view_all_Page = async function (req, res) {
+exports.instrument_view_all_Page = async function (req, res) {
     try{
         theInstruments = await Instrument.find();
         res.render('instrument', {title: 'instrument search results', results: theInstruments});
