@@ -1,4 +1,4 @@
-var Instrument = require('../models/instrumentsSchema');
+
 const Instrument = require('../models/instrument');
 
 // Part 5 - return JSON
