@@ -1,23 +1,16 @@
 var Instrument = require('../models/instrumentsSchema');
-var Instrument = require('../controllers/instrument');
+const Instrument = require('../models/instrument');
 
-// GET one
-// List of all Costumes
-exports.intrument_list = async function(req, res) {
-    try {
-        // We use await to wait for the find() operation to complete in MongoDB
-        const theinstruments = await Intrument.find(); 
-        
-        // If successful, send the array of documents as JSON
-        res.send(theinstruments); 
-    }
-    catch(err) {
-        // If the database call fails, return a 500 server error
-        res.status(500);
-        res.send(`{"error": ${err}}`); 
-    }
+// Part 5 - return JSON
+exports.instrument_list = async function (req, res) {
+  try {
+    const theInstruments = await Instrument.find();
+    res.json(theInstruments);
+  } catch (err) {
+    res.status(500);
+    res.json({ error: err.message });
+  }
 };
-
 // UPDATE
 exports.instrument_update = async function(req, res) {
     try {
