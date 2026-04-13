@@ -5,7 +5,7 @@ const Instrument = require('../models/instrumentsSchema');
 exports.instrument_list = async function (req, res) {
   try {
     theInstruments = await Instrument.find();
-    res.send(theEggs);
+    res.send(theInstruments);
   } catch (err) {
     res.status(500);
     res.json('{"error":${err}}');
@@ -15,7 +15,7 @@ exports.instrument_list = async function (req, res) {
 exports.instrument_detail = async function(req,res) {
     console.log("detail" +req.params.id)
     try{
-        result = await Egg.findById(req.params.id)
+        result = await Instrument.findById(req.params.id)
         res.send(result)
     }
     catch (error){
