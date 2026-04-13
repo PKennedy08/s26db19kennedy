@@ -1,4 +1,5 @@
 var Instrument = require('../models/instrumentsSchema');
+var Instrument = require('../models/instrument');
 
 // GET one
 exports.instrument_detail = async function(req, res) {
@@ -34,4 +35,13 @@ exports.instrument_delete = async function(req, res) {
     } catch (error) {
         res.status(500).send({ error: "Error deleting instrument" });
     }
+};
+exports.instrument_list = async function (req, res) {
+  try {
+    const theInstruments = await Instrument.find();
+    res.json(theInstruments); // IMPORTANT: JSON response
+  } catch (err) {
+    res.status(500);
+    res.json({ error: err.message });
+  }
 };
