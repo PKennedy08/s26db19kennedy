@@ -1,5 +1,5 @@
 var Instrument = require('../models/instrumentsSchema');
-var Instrument = require('../models/instrument');
+var Instrument = require('../controllers/instrument');
 
 // GET one
 exports.instrument_list = async function (req, res) {
