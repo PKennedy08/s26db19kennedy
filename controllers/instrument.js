@@ -1,5 +1,5 @@
 
-const Instrument = require('../routes/instruments');
+const Instrument = require('../models/instrumentsSchema');
 
 // Part 5 - return JSON
 exports.instrument_list = async function (req, res) {
