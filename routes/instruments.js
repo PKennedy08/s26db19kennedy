@@ -1,13 +1,12 @@
 var express = require('express');
 var router = express.Router();
 
-// IMPORT CONTROLLER
 const instrument_controller = require('../controllers/instrument');
 
-// JSON endpoint (Part 5)
+// Part 5 - JSON
 router.get('/', instrument_controller.instrument_list);
 
-// VIEW endpoint (Part 6)
+// Part 6 - View
 router.get('/view', instrument_controller.instrument_view_all_Page);
 
 module.exports = router;
