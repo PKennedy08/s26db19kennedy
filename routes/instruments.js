@@ -1,9 +1,10 @@
 var express = require('express');
 var router = express.Router();
 
+// IMPORT CONTROLLER
+const instrument_controller = require('../controllers/instrument');
 
-router.get('/', function(req, res, next) {
-  res.render('instruments', { title: 'Search Results Instruments' });
-});
+
+router.get('/', instrument_controller.instrument_list);
 
 module.exports = router;
