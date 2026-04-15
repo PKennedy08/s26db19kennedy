@@ -2,13 +2,12 @@
 const Instrument = require('../models/instrumentsSchema');
 
 // Part 5 - return JSON
-exports.instrument_list = async function (req, res) {
+exports.instrument_list = async function(req, res) {
   try {
-    theInstruments = await Instrument.find();
-    res.send(theInstruments);
+    const theInstruments = await Instruments.find();
+    res.json(theInstruments);
   } catch (err) {
-    res.status(500);
-    res.json('{"error":${err}}');
+    res.status(500).send(err);
   }
 };
 // UPDATE
