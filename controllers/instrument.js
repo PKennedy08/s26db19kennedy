@@ -86,3 +86,14 @@ exports.instrument_view_all_Page = async function (req, res) {
         res.send(`{"error":${err}}`);
     }
 }
+exports.instruments_update_Page = async function(req, res) {
+console.log("update view for item "+req.query.id)
+try{
+let result = await Costume.findById(req.query.id)
+res.render('instrumentupdate', { title: 'instrument Update', toShow: result });
+}
+catch(err){
+res.status(500)
+res.send(`{'error': '${err}'}`);
+}
+};

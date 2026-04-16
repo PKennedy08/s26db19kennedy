@@ -17,5 +17,5 @@ router.put('/instruments/:id', instrument_controller.instrument_update);
 router.delete('/instruments/:id', instrument_controller.instrument_delete);
 router.post('/instruments', instrument_controller.instrument_create_post);
 router.get('/instruments', instrument_controller.instrument_list);
-
+router.get('/update', costume_controlers.costume_update_Page);
 module.exports = router;
