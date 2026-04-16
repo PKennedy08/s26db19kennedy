@@ -16,20 +16,20 @@ var Instruments = require("./models/instrumentsSchema");
 async function recreateDB(){
   try{
   // Delete everything
-  await Instruments.deleteMany();
+    await Instruments.deleteMany();
 
-  let instance1 = new Instruments({name: "Guitar", type: "String", price: 500});
-  let instance2 = new Instruments({name: "Piano", type: "Keyboard", price: 1500});
-  let instance3 = new Instruments({name: "Drum", type: "Percussion", price: 700});
+    let instance1 = new Instruments({name: "Guitar", type: "String", price: 500});
+    let instance2 = new Instruments({name: "Piano", type: "Keyboard", price: 1500});
+    let instance3 = new Instruments({name: "Drum", type: "Percussion", price: 700});
 
-  await instance1.save();
-  console.log("First object saved");
+    await instance1.save();
+    console.log("First object saved");
 
-  await instance2.save();
-  console.log("Second object saved");
+    await instance2.save();
+    console.log("Second object saved");
 
-  await instance3.save();
-  console.log("Third objective saved");
+    await instance3.save();
+    console.log("Third objective saved");
 
   } catch(err) {
     console.error(err);
@@ -46,6 +46,7 @@ var resourceRouter = require('./routes/resource');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var instrumentsRouter = require('./routes/instruments');
+
 var gridRouter = require('./routes/grid');
 
 var app = express();
