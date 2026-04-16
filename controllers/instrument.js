@@ -89,7 +89,7 @@ exports.instrument_view_all_Page = async function (req, res) {
 exports.instrument_update_Page = async function(req, res) {
 console.log("update view for item "+req.query.id)
 try{
-let result = await Costume.findById(req.query.id)
+let result = await Intrument.findById(req.query.id)
 res.render('instrumentupdate', { title: 'instrument Update', toShow: result });
 }
 catch(err){
