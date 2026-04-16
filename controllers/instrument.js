@@ -11,15 +11,16 @@ exports.instrument_list = async function(req, res) {
   }
 };
 // UPDATE
-exports.instrument_detail = async function(req,res) {
-    console.log("detail" +req.params.id)
-    try{
-        result = await Instrument.findById(req.params.id)
-        res.send(result)
-    }
-    catch (error){
-        res.status(500)
-        res.send('{"error": documentfor id ${req.params.id} not found');
+exports.instrument_detail = async function(req, res) {
+    try {
+        let result = await Instrument.findById(req.params.id);
+        if (!result) {
+            res.status(404).send("No item found with that ID");
+        } else {
+            res.send(result);
+        }
+    } catch (err) {
+        res.status(500).send(`Error retrieving item: ${err}`);
     }
 };
 exports.instrument_create_post = async function(req, res){
