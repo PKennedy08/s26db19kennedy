@@ -61,10 +61,19 @@ exports.instrument_update = async function(req, res) {
 };
 
 // DELETE
-exports.instrument_delete = async function(req, res) {
-    res.send('Not Implemented: Instrument delete ' + req.params.id);
-    
-};
+
+    exports.instrument_delete = async function(req, res) {
+        console.log("delete " + req.params.id)
+        try {
+            result = await Instrument.findByIdAndDelete( req.params.id)
+            console.log("Removed " + result)
+            res.send(result)
+        } catch (err) {
+            res.status(500)
+            res.send(`{"error": Error deleting ${err}}`);
+        }
+    };
+
 exports.instrument_view_all_Page = async function (req, res) {
     try{
         theInstruments = await Instrument.find();
