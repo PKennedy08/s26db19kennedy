@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const instrumentsSchema = new mongoose.Schema({
+const instrumentsSchema = mongoose.Schema({
     name: String,
     type: String,
     price: Number
