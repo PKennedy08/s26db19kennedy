@@ -35,12 +35,12 @@ exports.instrument_create_post = async function(req, res){
     }
     catch(err){
         res.status(500)
-        res.send('{"error":${err}}');
+        res.send(`{"error":${err}}`);
     }
 }
 exports.instrument_update = async function(req, res) {
     console.log("body:", req.body);
-    console.log('update on id ${req.params.id} with body ${JSON.stringify(req.body)}')
+    console.log(`update on id ${req.params.id} with body ${JSON.stringify(req.body)}`)
     try {
         let toUpdate = await Instrument.findById(req.params.id);
 
@@ -55,7 +55,7 @@ exports.instrument_update = async function(req, res) {
         res.send(toUpdate);
     } catch (error) {
         res.status(500)
-        res.send('{"Error updating instrument" ${error}: Update for id ${req.params.id} failed');
+        res.send(`{"Error updating instrument" ${error}: Update for id ${req.params.id} failed`);
     }
 };
 
@@ -67,11 +67,11 @@ exports.instrument_delete = async function(req, res) {
 exports.instrument_view_all_Page = async function (req, res) {
     try{
         theInstruments = await Instrument.find();
-        res.render('instrument', {title: 'instrument search results', results: theInstruments});
+        res.render(`instrument`, {title: 'instrument search results', results: theInstruments});
         
     }
     catch(err){
         res.status(500);
-        res.send('{"error":${err}}');
+        res.send(`{"error":${err}}`);
     }
 }
