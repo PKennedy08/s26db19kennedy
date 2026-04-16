@@ -5,8 +5,9 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 require('dotenv').config();
-const connectionString = process.env.MONGO_CON
+const connectionString = process.env.MONGO_CON;
 const mongoose = require('mongoose');
+console.log("Mongo URI:", process.env.MONGO_CON);
 mongoose.connect(connectionString);
 
 var Instruments = require("./models/instrumentsSchema");
