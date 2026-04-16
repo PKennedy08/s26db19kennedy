@@ -4,7 +4,7 @@ var Instrument = require('../models/instrumentsSchema');
 // Part 5 - return JSON
 exports.instrument_list = async function(req, res) {
   try {
-    var theInstruments = await Instruments.find();
+    var theInstruments = await Instrument.find();
     res.send(theInstruments);
   } catch (err) {
     res.status(500)
