@@ -86,6 +86,21 @@ exports.instrument_view_all_Page = async function (req, res) {
         res.send(`{"error":${err}}`);
     }
 }
+exports.costume_view_one_Page = async function (req, res) {
+  console.log("single view for id " + req.query.id);
+
+  try {
+    let result = await Instrument.findById(req.query.id);
+
+    res.render('instrumentdetail', {
+      title: 'Intrument Detail',
+      toShow: result
+    });
+  } catch (err) {
+    res.status(500);
+    res.send(`{'error': '${err}'}`);
+  }
+};
 exports.instrument_update_Page = async function(req, res) {
 console.log("update view for item "+req.query.id)
 try{

@@ -11,8 +11,13 @@ block content
   div.row.mb-2
     div.mr-1 ID is
     div #{instrumentid}
+    - let items = results;
+    div(class="container-fluid")
+    div(class="row")
+    each item in items
+    div(class="row-sm-2", class="m-1") Item #{item.instrument_type}(#{item.size}) is #{item.cost}
 
-  - let actionid = "/resource/instrument/" + instrumentid
+  - let actionid = "/resource/instruments/" + instrumentid
 
   form#InstrumentForm(action=actionid method="PUT")
     div.form-group
