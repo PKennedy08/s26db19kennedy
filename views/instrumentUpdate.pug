@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1 Update Instrument
+
+  form(method='POST' action='/instrument/update/' + instrument._id)
+    div
+      label Name:
+      input(type='text', name='name', value=instrument.name)
+
+    div
+      label Price:
+      input(type='number', name='price', value=instrument.price)
+
+    button(type='submit') Update
