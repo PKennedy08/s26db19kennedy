@@ -3,34 +3,34 @@ extends layout
 block content
   h1= title
 
-  - let costumeid = toShow._id
-  - let costume_type = toShow.costume_type
-  - let costumecost = toShow.cost
-  - let costumesize = toShow.size
+  - let instrumentid = toShow._id
+  - let instrument_type = toShow.instrument_type
+  - let instrumentcost = toShow.cost
+  - let instrumentsize = toShow.size
 
   div.row.mb-2
     div.mr-1 ID is
-    div #{costumeid}
+    div #{instrumentid}
 
-  - let actionid = "/resource/costumes/" + costumeid
+  - let actionid = "/resource/instrument/" + instrumentid
 
-  form#CostumeForm(action=actionid method="PUT")
+  form#InstrumentForm(action=actionid method="PUT")
     div.form-group
-      label.costumeAttr(for='costume_type') Costume type
-      input#costume_type(type='text', name='costume_type', value=costume_type)
-
-    div.form-group
-      label.costumeAttr(for='size') Costume size
-      input#size(type='text', name='size', value=costumesize)
+      label.instrumentAttr(for='instrument_type') Instrument type
+      input#instrument_type(type='text', name='instrument_type', value=instrument_type)
 
     div.form-group
-      label.costumeAttr(for='cost') Costume cost
-      input#cost(type='number', name='cost', value=costumecost)
+      label.instrumentAttr(for='size') Instrument size
+      input#size(type='text', name='size', value=instrumentsize)
+
+    div.form-group
+      label.instrumentAttr(for='cost') Instrument cost
+      input#cost(type='number', name='cost', value=instrumentcost)
 
     input(type="submit")
 
   script.
-    document.forms['CostumeForm'].addEventListener('submit', (event) => {
+    document.forms['InstrumentForm'].addEventListener('submit', (event) => {
       event.preventDefault();
       fetch(event.target.action, {
         method: 'PUT',
@@ -38,7 +38,7 @@ block content
       }).then((resp) => {
         return resp.json();
       }).then((body) => {
-        alert("Update succeded")
+        alert("Update succeeded")
       }).catch((error) => {
         alert("Update failed " + error )
       });
