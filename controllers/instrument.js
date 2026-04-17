@@ -86,7 +86,7 @@ exports.instrument_view_all_Page = async function (req, res) {
         res.send(`{"error":${err}}`);
     }
 }
-exports.costume_view_one_Page = async function (req, res) {
+exports.instrument_view_one_Page = async function (req, res) {
   console.log("single view for id " + req.query.id);
 
   try {
