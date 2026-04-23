@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
-const passportLocalMongoose = require("passport-local-mongoose");
-const accountSchema = new Schema({
-username: String,
-password: String
+const passportLocalMongoose = require('passport-local-mongoose');
+
+const AccountSchema = new mongoose.Schema({
+    username: String,
+    password: String
 });
-accountSchema.plugin(passportLocalMongoose);
-// We export the Schema to avoid attaching the model to the
-// default mongoose connection.
-module.exports = mongoose.model("Account", accountSchema);
+
+AccountSchema.plugin(passportLocalMongoose);
+
+module.exports = mongoose.model('Account', AccountSchema);
