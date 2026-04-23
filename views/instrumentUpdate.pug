@@ -10,13 +10,19 @@ block content
 
   div.row.mb-2
     div.mr-1 ID is
+
     div #{instrumentid}
     - let items = results;
     div(class="container-fluid")
-    div(class="row")
-    each item in items
-    div(class="row-sm-2", class="m-1") Item #{item.instrument_type}(#{item.size}) is #{item.cost}
-
+    div(class="row m-1")
+        each item in items
+            - let destination = `dispatch(\"/costumes/update?id=${item._id}\")`
+            div(class="row-sm-2", class="m-1") Item #{item.costume_type}(#{item.size}) is #{item.cost}
+                button.btn( class="btn-primary ml-1", onclick= destination) Update
+    script.
+        function dispatch(path){
+        window.location.href=path
+}
   - let actionid = "/resource/instruments/" + instrumentid
 
   form#InstrumentForm(action=actionid method="PUT")
